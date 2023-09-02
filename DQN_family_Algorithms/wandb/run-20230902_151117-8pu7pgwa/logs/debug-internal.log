@@ -1,0 +1,107 @@
+2023-09-02 15:11:17,603 INFO    StreamThr :20748 [internal.py:wandb_internal():86] W&B internal server running at pid: 20748, started at: 2023-09-02 15:11:17.602845
+2023-09-02 15:11:17,604 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: status
+2023-09-02 15:11:17,613 INFO    WriterThread:20748 [datastore.py:open_for_write():85] open: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\run-8pu7pgwa.wandb
+2023-09-02 15:11:17,613 DEBUG   SenderThread:20748 [sender.py:send():379] send: header
+2023-09-02 15:11:17,645 DEBUG   SenderThread:20748 [sender.py:send():379] send: run
+2023-09-02 15:11:18,080 INFO    SenderThread:20748 [dir_watcher.py:__init__():211] watching files in: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\files
+2023-09-02 15:11:18,080 INFO    SenderThread:20748 [sender.py:_start_run_threads():1121] run started: 8pu7pgwa with start time 1693660277.603846
+2023-09-02 15:11:18,081 DEBUG   SenderThread:20748 [sender.py:send_request():406] send_request: summary_record
+2023-09-02 15:11:18,082 INFO    SenderThread:20748 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-09-02 15:11:18,089 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: check_version
+2023-09-02 15:11:18,089 DEBUG   SenderThread:20748 [sender.py:send_request():406] send_request: check_version
+2023-09-02 15:11:18,179 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: run_start
+2023-09-02 15:11:18,187 DEBUG   HandlerThread:20748 [system_info.py:__init__():31] System info init
+2023-09-02 15:11:18,187 DEBUG   HandlerThread:20748 [system_info.py:__init__():46] System info init done
+2023-09-02 15:11:18,187 INFO    HandlerThread:20748 [system_monitor.py:start():181] Starting system monitor
+2023-09-02 15:11:18,187 INFO    SystemMonitor:20748 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-09-02 15:11:18,187 INFO    HandlerThread:20748 [system_monitor.py:probe():201] Collecting system info
+2023-09-02 15:11:18,192 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started cpu monitoring
+2023-09-02 15:11:18,192 DEBUG   HandlerThread:20748 [system_info.py:probe():195] Probing system
+2023-09-02 15:11:18,192 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started disk monitoring
+2023-09-02 15:11:18,192 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started memory monitoring
+2023-09-02 15:11:18,199 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started network monitoring
+2023-09-02 15:11:18,200 DEBUG   HandlerThread:20748 [system_info.py:_probe_git():180] Probing git
+2023-09-02 15:11:18,261 DEBUG   HandlerThread:20748 [system_info.py:_probe_git():188] Probing git done
+2023-09-02 15:11:18,261 DEBUG   HandlerThread:20748 [system_info.py:probe():240] Probing system done
+2023-09-02 15:11:18,261 DEBUG   HandlerThread:20748 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.19045-SP0', 'python': '3.10.12', 'heartbeatAt': '2023-09-02T13:11:18.192857', 'startedAt': '2023-09-02T13:11:17.596839', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'git': {'remote': 'https://github.com/rullo16/DLRAtari.git', 'commit': 'ec9ce6707930382d27ee7efdfae52f59c2820b48'}, 'email': 'rullo16', 'root': 'C:/Users/Fede/Desktop/DRL_Atari', 'host': 'DESKTOP-AH01H0C', 'username': 'Fede', 'executable': 'c:\\Users\\Fede\\anaconda3\\envs\\tf\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3801.0, 'min': 0.0, 'max': 3801.0}, 'cpu_freq_per_core': [{'current': 3801.0, 'min': 0.0, 'max': 3801.0}], 'disk': {'total': 930.8769226074219, 'used': 354.5706100463867}, 'memory': {'total': 15.909244537353516}}
+2023-09-02 15:11:18,261 INFO    HandlerThread:20748 [system_monitor.py:probe():211] Finished collecting system info
+2023-09-02 15:11:18,261 INFO    HandlerThread:20748 [system_monitor.py:probe():214] Publishing system info
+2023-09-02 15:11:18,261 DEBUG   HandlerThread:20748 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-09-02 15:11:18,262 DEBUG   HandlerThread:20748 [system_info.py:_save_pip():67] Saving pip packages done
+2023-09-02 15:11:18,262 DEBUG   HandlerThread:20748 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-09-02 15:11:18,264 ERROR   HandlerThread:20748 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "c:\Users\Fede\anaconda3\envs\tf\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "c:\Users\Fede\anaconda3\envs\tf\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "c:\Users\Fede\anaconda3\envs\tf\lib\subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "c:\Users\Fede\anaconda3\envs\tf\lib\subprocess.py", line 1456, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-09-02 15:11:18,265 DEBUG   HandlerThread:20748 [system_info.py:_save_conda():86] Saving conda packages done
+2023-09-02 15:11:18,266 INFO    HandlerThread:20748 [system_monitor.py:probe():216] Finished publishing system info
+2023-09-02 15:11:18,275 DEBUG   SenderThread:20748 [sender.py:send():379] send: files
+2023-09-02 15:11:18,275 INFO    SenderThread:20748 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2023-09-02 15:11:18,286 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-02 15:11:18,286 DEBUG   SenderThread:20748 [sender.py:send_request():406] send_request: stop_status
+2023-09-02 15:11:18,289 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: pause
+2023-09-02 15:11:18,290 INFO    HandlerThread:20748 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-09-02 15:11:18,290 INFO    HandlerThread:20748 [system_monitor.py:finish():190] Stopping system monitor
+2023-09-02 15:11:18,290 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined cpu monitor
+2023-09-02 15:11:18,290 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-09-02 15:11:18,290 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined disk monitor
+2023-09-02 15:11:18,290 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-09-02 15:11:18,290 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined memory monitor
+2023-09-02 15:11:18,290 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-09-02 15:11:18,290 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined network monitor
+2023-09-02 15:11:18,358 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: resume
+2023-09-02 15:11:18,358 INFO    HandlerThread:20748 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-09-02 15:11:18,358 INFO    HandlerThread:20748 [system_monitor.py:start():181] Starting system monitor
+2023-09-02 15:11:18,359 INFO    SystemMonitor:20748 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-09-02 15:11:18,364 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started cpu monitoring
+2023-09-02 15:11:18,365 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started disk monitoring
+2023-09-02 15:11:18,365 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started memory monitoring
+2023-09-02 15:11:18,373 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started network monitoring
+2023-09-02 15:11:18,487 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: pause
+2023-09-02 15:11:18,487 INFO    HandlerThread:20748 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-09-02 15:11:18,487 INFO    HandlerThread:20748 [system_monitor.py:finish():190] Stopping system monitor
+2023-09-02 15:11:18,488 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined cpu monitor
+2023-09-02 15:11:18,488 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-09-02 15:11:18,488 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined disk monitor
+2023-09-02 15:11:18,488 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-09-02 15:11:18,488 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined memory monitor
+2023-09-02 15:11:18,488 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-09-02 15:11:18,488 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined network monitor
+2023-09-02 15:11:18,506 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: resume
+2023-09-02 15:11:18,506 INFO    HandlerThread:20748 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-09-02 15:11:18,506 INFO    HandlerThread:20748 [system_monitor.py:start():181] Starting system monitor
+2023-09-02 15:11:18,507 INFO    SystemMonitor:20748 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-09-02 15:11:18,511 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started cpu monitoring
+2023-09-02 15:11:18,511 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started disk monitoring
+2023-09-02 15:11:18,512 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started memory monitoring
+2023-09-02 15:11:18,519 INFO    SystemMonitor:20748 [interfaces.py:start():190] Started network monitoring
+2023-09-02 15:11:18,571 DEBUG   SenderThread:20748 [sender.py:send():379] send: telemetry
+2023-09-02 15:11:18,571 DEBUG   SenderThread:20748 [sender.py:send():379] send: stats
+2023-09-02 15:11:18,572 DEBUG   SenderThread:20748 [sender.py:send():379] send: stats
+2023-09-02 15:11:18,885 INFO    wandb-upload_0:20748 [upload_job.py:push():131] Uploaded file C:\Users\Fede\AppData\Local\Temp\tmpj9014ax6wandb\jsap6ryv-wandb-metadata.json
+2023-09-02 15:11:19,087 INFO    Thread-16 :20748 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\files\conda-environment.yaml
+2023-09-02 15:11:19,088 INFO    Thread-16 :20748 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\files\requirements.txt
+2023-09-02 15:11:19,088 INFO    Thread-16 :20748 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\files\wandb-metadata.json
+2023-09-02 15:11:19,088 INFO    Thread-16 :20748 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\files\output.log
+2023-09-02 15:11:19,088 INFO    Thread-16 :20748 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\files\wandb-summary.json
+2023-09-02 15:11:19,816 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: pause
+2023-09-02 15:11:19,816 INFO    HandlerThread:20748 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-09-02 15:11:19,816 INFO    HandlerThread:20748 [system_monitor.py:finish():190] Stopping system monitor
+2023-09-02 15:11:19,816 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined cpu monitor
+2023-09-02 15:11:19,817 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-09-02 15:11:19,817 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined disk monitor
+2023-09-02 15:11:19,817 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-09-02 15:11:19,817 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined memory monitor
+2023-09-02 15:11:19,817 DEBUG   SystemMonitor:20748 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-09-02 15:11:19,817 INFO    HandlerThread:20748 [interfaces.py:finish():202] Joined network monitor
+2023-09-02 15:11:19,818 DEBUG   SenderThread:20748 [sender.py:send():379] send: stats
+2023-09-02 15:11:21,106 INFO    Thread-16 :20748 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Fede\Desktop\DRL_Atari\DQN_family_Algorithms\wandb\run-20230902_151117-8pu7pgwa\files\output.log
+2023-09-02 15:11:22,848 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: status_report
+2023-09-02 15:11:27,893 DEBUG   HandlerThread:20748 [handler.py:handle_request():144] handle_request: status_report

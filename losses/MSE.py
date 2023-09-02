@@ -4,8 +4,9 @@ from tensorflow import keras
 
 class MSE(keras.losses.Loss):
 
-    def __init__(self, reduction=losses_utils.ReductionV2.AUTO, name=None):
-        super().__init__(reduction, name)
+    def __init__(self):
+        super().__init__()
 
     def call(self, y_true, y_pred):
-        
+        return tf.mean(tf.square(y_true - y_pred))
+
