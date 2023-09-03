@@ -22,10 +22,10 @@ class DoubleDQNAgent:
 
         self.batch_size = 32
 
-        #First model makes the predictions for Q-values which are then used to make an action
+        #First model makes predictions on the actions to take
         self.net = QNetworkModel(self.action_dim)
-        #We use a target model for the prediction of future rewards. The weights gets updated over n number of steps
-        #So that when we calculate the loss between the Q-values, the target Q-value is stable.
+        #This model is used to predict future rewards, with the weights that are being updated every n number of steps
+        #So when calculating the loss between the current Q-values, the target Q-values are stable.
         self.net_target = QNetworkModel(self.action_dim)
 
         self.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate)
@@ -39,16 +39,18 @@ class DoubleDQNAgent:
         self.net_target.update_weights(self.net.get_weights())
 
     def remember(self, obs,action,reward,next_state,done):
-        #Save Actions and states in memory to be used in the replay buffer
+        #Save experience to use in the replay buffer
         self.buffer.append([obs,action,reward,next_state, done])
 
     def action_selection(self,obs,frame_count):
         #Explore
         if np.random.random() < self.epsilon or self.epsilon<frame_count:
             return np.random.choice(self.action_dim)
+        #Exploit
         obs_tensor = tf.convert_to_tensor(obs)
         obs_tensor = tf.expand_dims(obs_tensor,0)
         q_value = tf.argmax(self.net.predict(obs_tensor)[0]).numpy()
+        #Decay epsilon parameter for exploration
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
         return q_value

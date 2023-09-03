@@ -33,7 +33,7 @@ class DQNAgent:
         self.training_errors = []
 
     def update_target_net(self):
-        return
+        return # Added so there is no need to modify the notebook for training.
 
     def remember(self, obs,action,reward,next_state,done):
         #Save Actions and states in memory to be used in the replay buffer
