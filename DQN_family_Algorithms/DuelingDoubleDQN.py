@@ -7,7 +7,7 @@ import tensorflow as tf
 from losses.Huber import Huber
 import random
 from collections import deque
-from NeuralNetwork import QNetworkModel
+from NeuralNetwork import DuelingQNetworkModel
 class DuelingDoubleDQNAgent:
 
     def __init__(self, action_dim, learning_rate, gamma, epsilon_decay):
@@ -22,12 +22,12 @@ class DuelingDoubleDQNAgent:
         self.batch_size = 32
 
         #First model makes the predictions for Q-values which are then used to make an action
-        self.net = QNetworkModel(self.action_dim,True)
+        self.net = DuelingQNetworkModel(self.action_dim)
         #We use a target model for the prediction of future rewards. The weights gets updated over n number of steps
         #So that when we calculate the loss between the Q-values, the target Q-value is stable.
-        self.net_target = QNetworkModel(self.action_dim,True)
+        self.net_target = DuelingQNetworkModel(self.action_dim)
 
-        self.optimizer = keras.optimizers.AdamW(learning_rate=self.learning_rate)
+        self.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate)
         self.loss_function = Huber()
 
         self.buffer = deque(maxlen=10000)

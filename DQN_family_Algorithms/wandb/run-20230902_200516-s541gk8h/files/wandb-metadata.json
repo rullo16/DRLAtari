@@ -1,0 +1,41 @@
+{
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.12",
+    "heartbeatAt": "2023-09-02T18:05:16.815890",
+    "startedAt": "2023-09-02T18:05:16.236363",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/rullo16/DLRAtari.git",
+        "commit": "c0e8497e05af1ddee852f7c608d9fc0b9360e829"
+    },
+    "email": "rullo16",
+    "root": "C:/Users/Fede/Desktop/DRL_Atari",
+    "host": "DESKTOP-AH01H0C",
+    "username": "Fede",
+    "executable": "c:\\Users\\Fede\\anaconda3\\envs\\tf\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3801.0,
+        "min": 0.0,
+        "max": 3801.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3801.0,
+            "min": 0.0,
+            "max": 3801.0
+        }
+    ],
+    "disk": {
+        "total": 930.8769226074219,
+        "used": 355.99609756469727
+    },
+    "memory": {
+        "total": 15.909244537353516
+    }
+}

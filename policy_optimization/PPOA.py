@@ -7,7 +7,7 @@ import tensorflow as tf
 from losses.Huber import Huber
 import random
 from collections import deque
-from NeuralNetwork import QNetworkModel
+from NeuralNetwork import PPONetworkModel
 import tensorflow_probability as tfp
 
 
@@ -23,8 +23,8 @@ class PPOAgent:
         self.vf_coeff = 1
         self.entropy_coeff = 0.01
 
-        self.actor = QNetworkModel(action_dim)
-        self.critic = QNetworkModel(1)
+        self.actor = PPONetworkModel(action_dim)
+        self.critic = PPONetworkModel(1)
 
 
         self.actor_optimizer = keras.optimizers.AdamW(learning_rate=self.learning_rate)

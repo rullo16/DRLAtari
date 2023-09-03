@@ -25,7 +25,7 @@ class DQNAgent:
         #First model makes the predictions for Q-values which are then used to make an action
         self.net = QNetworkModel(self.action_dim)
 
-        self.optimizer = keras.optimizers.AdamW(learning_rate=self.learning_rate)
+        self.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate)
         self.loss_function = Huber()
 
         self.buffer = deque(maxlen=10000)

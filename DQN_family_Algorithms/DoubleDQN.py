@@ -28,7 +28,7 @@ class DoubleDQNAgent:
         #So that when we calculate the loss between the Q-values, the target Q-value is stable.
         self.net_target = QNetworkModel(self.action_dim)
 
-        self.optimizer = keras.optimizers.AdamW(learning_rate=self.learning_rate)
+        self.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate)
         self.loss_function = Huber()
 
         self.buffer = deque(maxlen=10000)
