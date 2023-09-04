@@ -1,0 +1,5 @@
+2023-09-04 17:13:36,724 INFO    StreamThr :10848 [internal.py:wandb_internal():86] W&B internal server running at pid: 10848, started at: 2023-09-04 17:13:36.723511
+2023-09-04 17:13:36,725 DEBUG   HandlerThread:10848 [handler.py:handle_request():144] handle_request: status
+2023-09-04 17:13:37,215 INFO    WriterThread:10848 [datastore.py:open_for_write():85] open: c:\Users\rullo\OneDrive\Desktop\DLRAtari\DQN_family_Algorithms\wandb\run-20230904_171336-2fgyqld2\run-2fgyqld2.wandb
+2023-09-04 17:13:37,216 DEBUG   SenderThread:10848 [sender.py:send():375] send: header
+2023-09-04 17:13:37,288 DEBUG   SenderThread:10848 [sender.py:send():375] send: run
