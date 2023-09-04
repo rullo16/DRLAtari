@@ -1,0 +1,49 @@
+{
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.10",
+    "heartbeatAt": "2023-09-04T15:13:38.904679",
+    "startedAt": "2023-09-04T15:13:36.623845",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/rullo16/DLRAtari.git",
+        "commit": "40401e0d5950497e15ff052ca5ea70b2f1816d32"
+    },
+    "email": "rullofederico16@gmail.com",
+    "root": "C:/Users/rullo/OneDrive/Desktop/DLRAtari",
+    "host": "MSI",
+    "username": "rullo",
+    "executable": "d:\\envs\\tf\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2592.0,
+        "min": 0.0,
+        "max": 2592.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2592.0,
+            "min": 0.0,
+            "max": 2592.0
+        }
+    ],
+    "disk": {
+        "total": 237.17675399780273,
+        "used": 221.46670150756836
+    },
+    "gpu": "NVIDIA GeForce RTX 2060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2060",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 15.84393310546875
+    }
+}
