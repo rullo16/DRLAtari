@@ -43,6 +43,11 @@ class QNetworkModel:
     def get_weights(self):
         return self.model.get_weights()
     
+    def save_model(self,name):
+        self.model.save(name)
+    
+    def load_model(self,name):
+        return keras.models.load_model(name)
 
 class DuelingQNetworkModel:
 
