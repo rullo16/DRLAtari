@@ -8,6 +8,7 @@ from losses.Huber import Huber
 import random
 from collections import deque
 from NeuralNetwork import DuelingQNetworkModel
+
 class DuelingDoubleDQNAgent:
 
     def __init__(self, action_dim, learning_rate, gamma, epsilon_decay):
@@ -23,8 +24,8 @@ class DuelingDoubleDQNAgent:
 
         #First model makes the predictions for Q-values which are then used to make an action
         self.net = DuelingQNetworkModel(self.action_dim)
-        #We use a target model for the prediction of future rewards. The weights gets updated over n number of steps
-        #So that when we calculate the loss between the Q-values, the target Q-value is stable.
+        #We use a target model for the prediction of future rewards. weights are updated every n time
+        #This keeps the Q-values stable
         self.net_target = DuelingQNetworkModel(self.action_dim)
 
         self.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate)
@@ -32,7 +33,7 @@ class DuelingDoubleDQNAgent:
 
         self.buffer = deque(maxlen=10000)
 
-        self.training_errors = []
+        #self.training_errors = []
 
     def update_target_net(self):
         self.net_target.update_weights(self.net.get_weights())
@@ -56,8 +57,8 @@ class DuelingDoubleDQNAgent:
     def replay(self):
         sample = random.sample(self.buffer, self.batch_size)
         obs, actions, rewards, next_obs, done = map(np.asarray, zip(*sample))
-        obs = np.transpose(obs,(0,2,3,1))
-        next_obs = np.transpose(next_obs,(0,2,3,1))
+        obs = tf.transpose(obs,(0,2,3,1))
+        next_obs = tf.transpose(next_obs,(0,2,3,1))
 
         next_q_vals = tf.reduce_max(self.net_target.predict(next_obs),axis=1)
         updated_q_vals = rewards + next_q_vals * self.gamma
@@ -71,7 +72,7 @@ class DuelingDoubleDQNAgent:
             q_action = tf.reduce_sum(tf.multiply(q_vals,masks),axis=1)
             loss = self.loss_function(targets,q_action)
 
-        self.training_errors.append(loss.numpy())
+        #self.training_errors.append(loss.numpy())
         #Backpropagation
         grads = tape.gradient(loss, self.net.trainable_variables())
         self.optimizer.apply_gradients(zip(grads,self.net.trainable_variables()))

@@ -11,8 +11,8 @@ class Huber(keras.losses.Loss):
     def call(self,y_true, y_pred):
 
         error = y_true - y_pred
-        small_err = tf.abs(error)<=self.threshold
-        small_err_loss = tf.square(error) / 2
-        big_err_loss = self.threshold * (tf.abs(error)-self.threshold/2)
-        return tf.where(small_err,small_err_loss,big_err_loss)
+        low_err = tf.abs(error)<=self.threshold
+        low_err_loss = tf.square(error) / 2
+        high_err_loss = self.threshold * (tf.abs(error)-self.threshold/2)
+        return tf.where(low_err,low_err_loss,high_err_loss)
 

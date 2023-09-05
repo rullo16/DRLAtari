@@ -29,7 +29,7 @@ class DuelingDQNAgent:
 
         self.buffer = deque(maxlen=10000)
 
-        self.training_errors = []
+        #self.training_errors = []
 
     def update_target_net(self):
         return
@@ -53,8 +53,8 @@ class DuelingDQNAgent:
     def replay(self):
         sample = random.sample(self.buffer, self.batch_size)
         obs, actions, rewards, next_obs, done = map(np.asarray, zip(*sample))
-        obs = np.transpose(obs,(0,2,3,1))
-        next_obs = np.transpose(next_obs,(0,2,3,1))
+        obs = tf.transpose(obs,(0,2,3,1))
+        next_obs = tf.transpose(next_obs,(0,2,3,1))
 
         next_q_vals = tf.reduce_max(self.net.predict(next_obs),axis=1)
         updated_q_vals = rewards + next_q_vals * self.gamma
@@ -68,7 +68,7 @@ class DuelingDQNAgent:
             q_action = tf.reduce_sum(tf.multiply(q_vals,masks),axis=1)
             loss = self.loss_function(targets,q_action)
 
-        self.training_errors.append(loss.numpy())
+        #self.training_errors.append(loss.numpy())
         #Backpropagation
         grads = tape.gradient(loss, self.net.trainable_variables())
         self.optimizer.apply_gradients(zip(grads,self.net.trainable_variables()))

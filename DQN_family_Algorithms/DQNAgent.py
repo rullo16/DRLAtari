@@ -22,7 +22,7 @@ class DQNAgent:
 
         self.batch_size = 32
 
-        #First model makes the predictions for Q-values which are then used to make an action
+        #The model makes the predictions for Q-values which are then used to make an action
         self.net = QNetworkModel(self.action_dim)
 
         self.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate)
@@ -30,7 +30,7 @@ class DQNAgent:
 
         self.buffer = deque(maxlen=10000)
 
-        self.training_errors = []
+        #self.training_errors = []
 
     def update_target_net(self):
         return # Added so there is no need to modify the notebook for training.
@@ -43,9 +43,11 @@ class DQNAgent:
         #Explore
         if np.random.random() < self.epsilon or self.epsilon<frame_count:
             return np.random.choice(self.action_dim)
+        #Exploit
         obs_tensor = tf.convert_to_tensor(obs)
         obs_tensor = tf.expand_dims(obs_tensor,0)
         q_value = tf.argmax(self.net.predict(obs_tensor)[0]).numpy()
+        #Decay exploration parameter
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
         return q_value
@@ -54,8 +56,8 @@ class DQNAgent:
     def replay(self):
         sample = random.sample(self.buffer, self.batch_size)
         obs, actions, rewards, next_obs, done = map(np.asarray, zip(*sample))
-        obs = np.transpose(obs,(0,2,3,1))
-        next_obs = np.transpose(next_obs,(0,2,3,1))
+        obs = tf.transpose(obs,(0,2,3,1))
+        next_obs = tf.transpose(next_obs,(0,2,3,1))
 
         next_q_vals = tf.reduce_max(self.net.predict(next_obs),axis=1)
         updated_q_vals = rewards + next_q_vals * self.gamma
@@ -69,7 +71,7 @@ class DQNAgent:
             q_action = tf.reduce_sum(tf.multiply(q_vals,masks),axis=1)
             loss = self.loss_function(targets,q_action)
 
-        self.training_errors.append(loss.numpy())
+        #self.training_errors.append(loss.numpy())
        
         #Backpropagation
         grads = tape.gradient(loss, self.net.trainable_variables())
