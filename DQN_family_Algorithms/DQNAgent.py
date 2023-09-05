@@ -73,6 +73,6 @@ class DQNAgent:
 
         #self.training_errors.append(loss.numpy())
        
-        #Backpropagation
-        grads = tape.gradient(loss, self.net.trainable_variables())
-        self.optimizer.apply_gradients(zip(grads,self.net.trainable_variables()))
+        #Backprop
+        gradients = tape.gradient(loss, self.net.trainable_variables())
+        self.optimizer.apply_gradients(zip(gradients,self.net.trainable_variables()))

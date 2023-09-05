@@ -4,7 +4,7 @@ from tensorflow import keras
 
 class QNetworkModel:
 
-    def __init__(self,action_dim, dueling=False):
+    def __init__(self,action_dim):
         self.action_dim = action_dim
         
         self.model = self.create_model()
@@ -14,14 +14,14 @@ class QNetworkModel:
         inputs = keras.layers.Input(shape=(84, 84, 4,))
 
         # Convolutions on the frames on the screen
-        layer1 = keras.layers.Conv2D(32, 8, strides=4, activation="relu")(inputs)
-        layer2 = keras.layers.Conv2D(64, 4, strides=2, activation="relu")(layer1)
-        layer3 = keras.layers.Conv2D(64, 3, strides=1, activation="relu")(layer2)
+        x = keras.layers.Conv2D(32, 8, strides=4, activation="relu")(inputs)
+        x = keras.layers.Conv2D(64, 4, strides=2, activation="relu")(x)
+        x = keras.layers.Conv2D(64, 3, strides=1, activation="relu")(x)
 
-        layer4 = keras.layers.Flatten()(layer3)
+        x = keras.layers.Flatten()(x)
 
-        layer5 = keras.layers.Dense(512, activation="relu")(layer4)
-        action = keras.layers.Dense(self.action_dim, activation="relu")(layer5)
+        x = keras.layers.Dense(512, activation="relu")(x)
+        action = keras.layers.Dense(self.action_dim, activation="linear")(x)
 
         return keras.Model(inputs=inputs, outputs=action)
     
@@ -60,17 +60,17 @@ class DuelingQNetworkModel:
         inputs = keras.layers.Input(shape=(84, 84, 4,))
 
         # Convolutions on the frames on the screen
-        layer1 = keras.layers.Conv2D(32, 8, strides=4, activation="relu")(inputs)
-        layer2 = keras.layers.Conv2D(64, 4, strides=2, activation="relu")(layer1)
-        layer3 = keras.layers.Conv2D(64, 3, strides=1, activation="relu")(layer2)
+        x = keras.layers.Conv2D(32, 8, strides=4, activation="relu")(inputs)
+        x = keras.layers.Conv2D(64, 4, strides=2, activation="relu")(x)
+        x = keras.layers.Conv2D(64, 3, strides=1, activation="relu")(x)
 
-        layer4 = keras.layers.Flatten()(layer3)
+        x = keras.layers.Flatten()(x)
 
-        layer5 = keras.layers.Dense(512, activation="relu")(layer4)
+        x = keras.layers.Dense(512, activation="relu")(x)
 
         #Advantage and Value Streams
-        advantage = keras.layers.Dense(self.action_dim, activation="linear")(layer5)
-        value = keras.layers.Dense(1, activation="linear")(layer5)
+        advantage = keras.layers.Dense(self.action_dim, activation="linear")(x)
+        value = keras.layers.Dense(1, activation="linear")(x)
 
         action = keras.layers.Add()([advantage,value])
 
@@ -104,21 +104,21 @@ class PPONetworkModel:
 
     def __init__(self,action_dim):
         self.action_dim = action_dim
-        self.model = self.create_dueling_model()
+        self.model = self.create_model()
     
     def create_model(self):
         # Network defined by the Deepmind paper
         inputs = keras.layers.Input(shape=(84, 84, 4,))
 
         # Convolutions on the frames on the screen
-        layer1 = keras.layers.Conv2D(32, 8, strides=4, activation="relu")(inputs)
-        layer2 = keras.layers.Conv2D(64, 4, strides=2, activation="relu")(layer1)
-        layer3 = keras.layers.Conv2D(64, 3, strides=1, activation="relu")(layer2)
+        x = keras.layers.Conv2D(32, 8, strides=4, activation="relu")(inputs)
+        x = keras.layers.Conv2D(64, 4, strides=2, activation="relu")(x)
+        x = keras.layers.Conv2D(64, 3, strides=1, activation="relu")(x)
 
-        layer4 = keras.layers.Flatten()(layer3)
+        x = keras.layers.Flatten()(x)
 
-        layer5 = keras.layers.Dense(512, activation="relu")(layer4)
-        action = keras.layers.Dense(self.action_dim, activation="softmax")(layer5)
+        x = keras.layers.Dense(512, activation="relu")(x)
+        action = keras.layers.Dense(self.action_dim, activation="softmax")(x)
 
         return keras.Model(inputs=inputs, outputs=action)
     
